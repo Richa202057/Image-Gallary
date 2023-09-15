@@ -1,0 +1,89 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; /* to maintain the size of the box */
+}
+.container{
+    height: 100vh;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    /* Above all four properties are provided */
+    /* border: 2px solid red; */
+    overflow-x: hidden;
+    overflow-y: auto; /* when content overflow then act like scroll else act like visible */
+}
+.head{
+    text-align: center;
+}
+h1{
+  margin: 20px 0;
+  margin-bottom: 20px; 
+  font-size: 3rem;
+   /* Above properties are provided */
+}
+
+.gallary-container{
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* to bring hidden images in next row i.e wrap hidden childs in next row*/
+}
+.card{
+    width: 32%; /* in a row there should be 3 images or cards, so 32*3=96% , 96% space will be taken by these card horizontally and 4% is left for providing spaces in a row in between cards */
+    /* width of each card is 32% of total width of gallary-container */
+    margin-bottom: 20px; /* to make gap between each cards between the rows*/
+    border-radius: 10px;
+    overflow: hidden; /* to hide the overflowed content of card */
+    /* border: 2px solid blue; */
+    transition: 1s;
+    position: relative;/* to overlap figcaption on card, figcaption should be absolute positioned so, card should be non-static. so card is relative positioned as ,bydefault ele is static positioned*/ 
+}
+
+.card img{
+   
+    height: 100%; /* fully fit the image horizontally and vertically to the card  */
+    width: 100%;
+    object-fit: cover;
+    /* applying filters on image */
+    filter: grayscale(1);
+    box-shadow: 0 0 20px #333; /* value is provided */
+    
+}
+
+img:hover{
+    filter: grayscale(0);
+}
+
+.card:hover{
+    transition: 0.3s;
+    transition-timing-function:ease-in-out;
+   transform: scale(1.03);
+   filter:drop-shadow( 0 0 10px #333);
+  /* values of these 3 properties are provided by designer */
+}
+
+/* properties for captions of images */
+figcaption{
+    position: absolute; /* to overlap this figcaption elemt on card , it's position is absolute*/
+    bottom: 0;
+    left: 0; /* for placing caption at the bottom -left */
+    padding: 25px;
+    width: 100%;
+    height: 20%;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    opacity: 0; /* to make caption invisible */
+    border-radius:0 0 10px 10px;
+    background: linear-gradient(0deg, rgba(0 0 0 0.5) 0%,rgba(255 255 255 0) 0%); /* background colour of caption provided by designer */
+
+}
+/* when hover on card , apply these properties on figcaption elements */
+.card:hover figcaption{
+ opacity: 1; /* caption will be visible on hovering the card */
+}
+
+
+
